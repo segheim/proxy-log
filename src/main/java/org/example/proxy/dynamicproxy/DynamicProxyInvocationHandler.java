@@ -10,14 +10,14 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DynamicProxyHandler implements InvocationHandler {
+public class DynamicProxyInvocationHandler implements InvocationHandler {
 
-    private static final Logger log = LogManager.getLogger(DynamicProxyHandler.class);
+    private static final Logger log = LogManager.getLogger(DynamicProxyInvocationHandler.class);
 
     private Object target;
     private final Map<String, Method> methods = new HashMap<>();
 
-    public DynamicProxyHandler(Object target) {
+    public DynamicProxyInvocationHandler(Object target) {
         this.target = target;
         for(Method method: target.getClass().getDeclaredMethods()) {
             this.methods.put(method.getName(), method);
